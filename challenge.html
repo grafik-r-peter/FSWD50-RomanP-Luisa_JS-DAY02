@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ATM Challenge</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+
+
+		function atm(num) {
+			var hundred = Math.floor(num/100);
+			var fifty = Math.floor((num%100)/50);
+			var twenty = Math.floor(((num%100)%50)/20);
+			var ten = Math.floor((((num%100)%50)%20)/10);
+			var money = "100: " + hundred + " bills<br>"  + "50: " + fifty + " bills<br>"  + "20: " + twenty + " bills<br>" + 
+			"10: " + ten + " bills<br>" 
+
+			return money;
+		}
+
+		function withdraw() {
+			var cashout = parseFloat(prompt("How much do you want to withdrawal?"));
+			if (isNaN(cashout)) {
+				alert("Error: you must enter a number!");
+			}
+
+			else { 
+				if(cashout % 10 == 0) {
+					return atm(cashout);
+				} else {
+					alert("Error: The number must be a multiple of 10");
+				}
+				
+			}
+		}
+
+		document.write(withdraw());
+
+	</script>
+</body>
+
+</html>
